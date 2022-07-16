@@ -33,7 +33,7 @@ public class DriverController {
     @PostMapping(path = "addDriverIdImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil uploadDriverIDImage(@RequestParam("ID") MultipartFile multipartFiles, @RequestParam String driverId) {
 
-        String pathDirectory = "E:\\Car Rental System\\CarRentalSystem\\src\\main\\resources\\static\\IdCardImage";
+        String pathDirectory = "E:\\CarRental System Assignment\\Car-Rental-System-New\\src\\main\\resources\\static\\IdCardImage";
         String imageName = driverId + "ID_CARD" + ".jpeg";
         Files.copy(multipartFiles.getInputStream(), Paths.get(pathDirectory + File.separator + imageName), StandardCopyOption.REPLACE_EXISTING);
 
@@ -42,7 +42,7 @@ public class DriverController {
 
     @GetMapping(path = "getDriverImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil  getDriverIdImage(@RequestParam String name){
-        String pathDirectory = "E:\\Car Rental System\\CarRentalSystem\\src\\main\\resources\\static\\IdCardImage";
+        String pathDirectory = "E:\\CarRental System Assignment\\Car-Rental-System-New\\src\\main\\resources\\static\\IdCardImage";
         Path path = Paths.get(pathDirectory + File.separator + name);
         return new ResponseUtil(200,"Driver Id image return complete",path);
 
@@ -52,7 +52,7 @@ public class DriverController {
     @PostMapping(path = "addDriverLicenseImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil uploadDriverLicenseImage(@RequestParam("Licence") MultipartFile multipartFiles, @RequestParam String driverId) {
 
-        String pathDirectory = "E:\\Car Rental System\\CarRentalSystem\\src\\main\\resources\\static\\LicenseImage";
+        String pathDirectory = "E:\\CarRental System Assignment\\Car-Rental-System-New\\src\\main\\resources\\static\\LicenseImage";
         String imageName = driverId + "LICENSE_CARD" + ".jpeg";
         Files.copy(multipartFiles.getInputStream(), Paths.get(pathDirectory + File.separator + imageName), StandardCopyOption.REPLACE_EXISTING);
 
@@ -61,7 +61,7 @@ public class DriverController {
 
     @GetMapping(path = "getDriverImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil  getDriverLicenseImage(@RequestParam String name){
-        String pathDirectory = "E:\\Car Rental System\\CarRentalSystem\\src\\main\\resources\\static\\LicenseImage";
+        String pathDirectory = "E:\\CarRental System Assignment\\Car-Rental-System-New\\src\\main\\resources\\static\\LicenseImage";
         Path path = Paths.get(pathDirectory + File.separator + name);
         return new ResponseUtil(200,"Driver License image return complete",path);
 

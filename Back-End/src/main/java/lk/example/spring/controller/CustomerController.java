@@ -46,7 +46,7 @@ public class CustomerController {
     @PostMapping(path = "uploadIdImage")
     public ResponseUtil uploadCustomerIDImage(@RequestParam("ID") MultipartFile multipartFiles, @RequestParam String cusId) {
 
-        String pathDirectory = "E:\\Car Rental System\\CarRentalSystem\\src\\main\\resources\\static\\IdCardImage";
+        String pathDirectory = "E:\\CarRental System Assignment\\Car-Rental-System-New\\src\\main\\resources\\static\\IdCardImage";
         String imageName = cusId + "ID_CARD" + ".jpeg";
         Files.copy(multipartFiles.getInputStream(), Paths.get(pathDirectory + File.separator + imageName), StandardCopyOption.REPLACE_EXISTING);
 
@@ -56,7 +56,7 @@ public class CustomerController {
 
     @GetMapping(path = "getCustomerImage", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getCustomerIdImage(@RequestParam String name) {
-        String pathDirectory = "E:\\Car Rental System\\CarRentalSystem\\src\\main\\resources\\static\\IdCardImage";
+        String pathDirectory = "E:\\CarRental System Assignment\\Car-Rental-System-New\\src\\main\\resources\\static\\IdCardImage";
         Path path = Paths.get(pathDirectory + File.separator + name);
         return new ResponseUtil(200, "Customer id image return complete", path);
 
@@ -66,7 +66,7 @@ public class CustomerController {
     @PostMapping(path = "uploadLicenceImage")
     public ResponseUtil uploadCustomerLicenceImage(@RequestParam("Licence")MultipartFile multipartFiles, @RequestParam String cusId){
 
-        String pathDirectory = "E:\\Car Rental System\\CarRentalSystem\\src\\main\\resources\\static\\LicenseImage";
+        String pathDirectory = "E:\\CarRental System Assignment\\Car-Rental-System-New\\src\\main\\resources\\static\\LicenseImage";
         String imageName=cusId+"Licence_CARD"+".jpeg";
         Files.copy(multipartFiles.getInputStream(), Paths.get(pathDirectory+ File.separator+imageName), StandardCopyOption.REPLACE_EXISTING);
 
@@ -75,7 +75,7 @@ public class CustomerController {
 
     @GetMapping(path = "getCustomerLicenceImage", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getCustomerLicenceImage(@RequestParam String name) {
-        String pathDirectory = "E:\\Car Rental System\\CarRentalSystem\\src\\main\\resources\\static\\LicenseImage";
+        String pathDirectory = "E:\\CarRental System Assignment\\Car-Rental-System-New\\src\\main\\resources\\static\\LicenseImage";
         Path path = Paths.get(pathDirectory + File.separator + name);
         return new ResponseUtil(200, "Customer license image return complete", path);
 

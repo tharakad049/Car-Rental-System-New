@@ -53,7 +53,8 @@ public class AdminController {
     @PostMapping(path = "addCarImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil addCarImage(@RequestParam(value = "param") MultipartFile[] multipartFile , @RequestParam("carId") String carId){
 
-        String pathDirectory = "E:\\Car Rental System\\CarRentalSystem\\src\\main\\resources\\static\\CarImage";
+        String pathDirectory = " E:\\CarRental System Assignment\\Car-Rental-System-New\\src\\main\\resources\\static\\CarImage";
+
         String [] carImageView={"Front","Back","Side","Interior"};
         for (int i = 0; i < multipartFile.length; i++) {
             String[] split=multipartFile[i].getContentType().split("/");
@@ -96,7 +97,7 @@ public class AdminController {
     @PutMapping(path = "updateCarImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateCarImage(@RequestParam(value = "carImage") MultipartFile multipartFile , @RequestParam("carId") String carId ,@RequestParam("view") String view){
 
-        String pathDirectory = "E:\\Car Rental System\\CarRentalSystem\\src\\main\\resources\\static\\CarImage";
+        String pathDirectory = "E:\\CarRental System Assignment\\Car-Rental-System-New\\src\\main\\resources\\static\\CarImage";
         if (searchFileUtil.searchFile(pathDirectory,carId+view+".jpeg")){
             Files.copy(multipartFile.getInputStream(),Paths.get(pathDirectory+File.separator+carId+view+".jpeg"),StandardCopyOption.REPLACE_EXISTING);
             return new ResponseUtil(200,"car Image Updated",null);
@@ -119,7 +120,7 @@ public class AdminController {
     @SneakyThrows
     @DeleteMapping(path = "deleteCarImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil deleteCarAllImages(@RequestParam String carId){
-        String pathDirectory = "E:\\Car Rental System\\CarRentalSystem\\src\\main\\resources\\static\\CarImage";
+        String pathDirectory = "E:\\CarRental System Assignment\\Car-Rental-System-New\\src\\main\\resources\\static\\CarImage";
         String [] carImageView={"Front","Back","Side","Interior"};
 
         for (int i=0; i<carImageView.length; i++){
