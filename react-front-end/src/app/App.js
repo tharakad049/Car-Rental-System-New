@@ -1,9 +1,11 @@
 import React from "react";
-import Login from "../pages/Login";
+import Login from "../pages/Session/Login";
+import HomePage from "../pages/Home";
 
 function App() {
   return (
-      <Login/>
+      //<Login/>
+     <HomePage/>
   );
 }
 
